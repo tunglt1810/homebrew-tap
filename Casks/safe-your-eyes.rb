@@ -1,9 +1,9 @@
 cask "safe-your-eyes" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "0.1.9"
-  sha256 arm:   "bdee3938a6d500001da61bb818da6b8ed495dacccf46aa08b8af8e1e05941b7e",
-         intel: "32b79e5ec81c7e1c4cedd99cdb0a85ed69aee190c562e483b3a0748f1becc82a"
+  version "0.2.0"
+  sha256 arm:   "a750809823fca4cc001fe9460e436003ad5aa2bca2482e5363bd3d88f5d71586",
+         intel: "71d15f598bbeeedf35b47cca5adb66991b0583a0901b93430a54814ab9b721b6"
 
   url "https://github.com/tunglt1810/safe-your-eyes/releases/download/v#{version}/safe-your-eyes-macos-#{arch}.zip"
   name "Safe Your Eyes"
