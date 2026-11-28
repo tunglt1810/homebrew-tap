@@ -1,0 +1,30 @@
+name: Audit Casks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Ruby syntax
+        run: |
+          for f in Casks/*.rb; do
+            ruby -c "$f"
+          done
+
+      - name: Install local tap and run brew audit & style
+        run: |
+          TAP_DIR="$(brew --repository)/Library/Taps/tunglt1810/homebrew-tap"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          ln -sfn "$GITHUB_WORKSPACE" "$TAP_DIR"
+          brew trust tunglt1810/tap
+          for f in Casks/*.rb; do
+            token="$(basename "$f" .rb)"
+            brew style "tunglt1810/tap/${token}"
+            brew audit --cask "tunglt1810/tap/${token}"
+          done

@@ -10,6 +10,13 @@ cask "safe-your-eyes" do
   desc "Lightweight cross-platform Rust eye-protection desktop app"
   homepage "https://tunglt1810.github.io/safe-your-eyes/"
 
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  depends_on macos: :sonoma
+
   app "Safe Your Eyes.app"
   binary "#{appdir}/Safe Your Eyes.app/Contents/MacOS/safe-your-eyes"
 
