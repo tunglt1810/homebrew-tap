@@ -15,7 +15,7 @@ cask "safe-your-eyes" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Safe Your Eyes.app"
   binary "#{appdir}/Safe Your Eyes.app/Contents/MacOS/safe-your-eyes"
