@@ -22,6 +22,7 @@ jobs:
           TAP_DIR="$(brew --repository)/Library/Taps/tunglt1810/homebrew-tap"
           mkdir -p "$(dirname "$TAP_DIR")"
           ln -sfn "$GITHUB_WORKSPACE" "$TAP_DIR"
+          brew trust tunglt1810/tap
           for f in Casks/*.rb; do
             token="$(basename "$f" .rb)"
             brew style "tunglt1810/tap/${token}"
